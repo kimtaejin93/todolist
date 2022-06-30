@@ -1,0 +1,46 @@
+body{
+  background-image: url("bgi.webp");
+}
+.container{
+  background-color:honeydew;
+  min-height: 100vh;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+.task-area{
+  border: 1px skyblue solid;
+}
+.task-taps{
+  display: flex;
+  border-bottom: 1px skyblue solid;
+  position: relative;
+  
+}
+.task-taps div{
+  padding: 1em;
+  width: 100px;
+  text-align: center;
+}
+
+#underline{
+  height: 5px;
+  width: 100px;
+  background-color: pink;
+  position:absolute;
+  left:0px;
+  top:52px;
+  padding:0px;
+
+}
+.task{
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+.task-done{
+  text-decoration: line-through;
+}
+.task-taps div{
+  cursor: pointer;
+}
