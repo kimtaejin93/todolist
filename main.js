@@ -1,6 +1,7 @@
 let inputArea=document.getElementById("input-area");
 let addButton=document.getElementById("add-button");
 let taskBoard=document.getElementById("task-board");
+let underLine=document.getElementById("underline");
 let taps=document.querySelectorAll(".task-taps div" );
 let taskList=[];
 let filterList=[];
@@ -33,13 +34,13 @@ function render(){
   for(let i=0;i<list.length;i++){
     if(list[i].isComplete==true){
 
-      resultHTML+=` <div class="task">
+      resultHTML+=` <div class="task donebox">
       <div class="task-done">
       ${list[i].taskContent}
       </div>
       <div>
-        <button onclick="toggleComplete('${list[i].id}')"><i class="fa-solid fa-circle-check"></i></button>
-        <button onclick="taskDelete('${list[i].id}')">delete</button>
+        <button onclick="toggleComplete('${list[i].id}')">✅</button>
+        <button onclick="taskDelete('${list[i].id}')">&#128465</button>
       </div>
     </div>`
 
@@ -50,8 +51,8 @@ function render(){
     ${list[i].taskContent}
     </div>
     <div>
-      <button onclick="toggleComplete('${list[i].id}')"><i class="fa-solid fa-circle-check"></i></button>
-      <button onclick="taskDelete('${list[i].id}')">delete</button>
+      <button onclick="toggleComplete('${list[i].id}')">✅</button>
+      <button onclick="taskDelete('${list[i].id}')">&#128465</button>
     </div>
   </div>`
     }
@@ -84,8 +85,11 @@ function taskDelete(id){
   render()
 }
 
-function filter(event){
+function filter(event){ 
   mode=event.target.id;
+  underLine.style.left=event.target.offsetLeft+"px";
+  underLine.style.width=event.target.offsetWidth+"px";
+  underLine.style.top=event.target.offsetTop+event.target.offsetHeight-4+"px";
   
   if(mode=="all"){
     render()
